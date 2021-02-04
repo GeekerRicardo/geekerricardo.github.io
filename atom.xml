@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://geekerricardo.github.io</id>
-    <title>Gridea</title>
-    <updated>2021-02-04T03:17:30.860Z</updated>
+    <title>RicardoSong</title>
+    <updated>2021-02-04T03:20:12.720Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://geekerricardo.github.io"/>
     <link rel="self" href="https://geekerricardo.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>Integrated Circuit into the Future</subtitle>
     <logo>https://geekerricardo.github.io/images/avatar.png</logo>
     <icon>https://geekerricardo.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Gridea</rights>
+    <rights>All rights reserved 2021, RicardoSong</rights>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://geekerricardo.github.io/post/hello-gridea/</id>
