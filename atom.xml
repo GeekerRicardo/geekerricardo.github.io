@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ricardosong.top</id>
     <title>Ricardo&apos;s Blog</title>
-    <updated>2021-02-05T07:02:22.400Z</updated>
+    <updated>2021-02-05T07:04:08.247Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ricardosong.top"/>
     <link rel="self" href="https://ricardosong.top/atom.xml"/>
@@ -17,7 +17,7 @@
         </link>
         <updated>2021-02-05T06:22:55.000Z</updated>
         <content type="html"><![CDATA[<!-- more -->
-<center><font color=red size=30>----------2021.02.05 14:25----------</font></center>
+<center><font color=red size=30>---------2021.02.05 14:25---------</font></center>
 <h2>1.系统考虑因素 (System Considerations)</h2>
 <h3 id="11稳压器regulators-in-power-management">1.1稳压器(Regulators in Power Management)</h3>
 <ul>
