@@ -206,7 +206,7 @@
                     <article class="post-wrap">
                         <header class="post-header">
                             <h1 class="post-title">
-                                关于
+                                ReadingNotes: Analog IC Design with Low-Dropout Regulators (LDOs)
                             </h1>
                             
                                     <!--zh-->
@@ -215,12 +215,26 @@
                                         <a itemprop="author" rel="author" href="/">
                                             Ricardo's Blog
                                         </a>
-                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-02-04</a></span>
+                                        <span class="post-time">&#x65E5;&#x671F;: <a href="#">2021-02-05</a></span>
                                         <span class="post-readtime">&#x9605;&#x8BFB;&#x65F6;&#x95F4;:<a
-                                    href="#">1.1
+                                    href="#">3.3
                                     &#x5206;&#x949F;</a></span>
-                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">279</a></span>
+                                        <span class="post-words">&#x5B57;&#x6570;:<a href="#">870</a></span>
                                         
+                                            <span class="post-category">&#x5206;&#x7C7B;:
+                                
+                                <a href="https://ricardosong.top/tag/paper/">论文</a>
+                                
+                                <a href="https://ricardosong.top/tag/ic/">集成电路</a>
+                                
+                                <a href="https://ricardosong.top/tag/LDO/">LDO</a>
+                                
+                                <a href="https://ricardosong.top/tag/analog/">模拟</a>
+                                
+                                <a href="https://ricardosong.top/tag/readingnote/">读书笔记</a>
+                                
+                            </span>
+                                            
                                                 阅读量:
                                                 <span data-hk-page="current"> - </span>
                                                 
@@ -229,24 +243,72 @@
                         </header>
                         
                         <div class="post-content">
-                            <blockquote>
-<p>欢迎光临本站，不胜荣幸。</p>
-</blockquote>
-<h2 id="本站内容及声明">🏠 本站内容及声明</h2>
-<p>本站内容主要关于集成电路设计、板级电路设计、嵌入式程序设计、人工智能以及Linux等，偶尔可能设计关于一些事件的看法或者我的课程内容。本博客的所有我创作的内容均遵循 <a href="https://opensource.org/licenses/mit-license.php"><code>The MIT licence</code></a>，可以自行转载，当然，如果你愿意在您的具体应用场合提及我，我会很高兴。<br>
-同时，头像和网页图标均来自Pixiv画师<a href="https://www.pixiv.net/users/10292">ふーみ</a>，在此对其表示感谢。</p>
-<h2 id="who-am-i">👨‍💻 who am I</h2>
-<p>我是来自郫县男子高级技术学校（<a href="https://www.uestc.edu.cn/">UESTC</a>）的雄性vegetable chicken，年方加冠，SOLO至今，哦不，有过7天的迷之网恋，现在远远不如某人幸福美满（懂的都懂）。</p>
-<h2 id="兴趣爱好">⛹ 兴趣爱好</h2>
-<p>好女色，不求甚解。<img src="https://ricardosong.top/post-images/1612412544337.jpg" alt="" width="339" height="484" loading="lazy"><br>
-喜欢鼓捣乱七八糟的东西。</p>
-<h2 id="隶属组织">💻 隶属组织</h2>
-<p>Applicable Electronic Association (AEA)<br>
-<img src="https://ricardosong.top/post-images/1612419562201.png" alt="" loading="lazy"></p>
-<h2 id="如何联系我">📬 如何联系我</h2>
-<p>E-mail: ricardo1966346317@gmail.com/ricardo1966346317@outlook.com<br>
-Telegram: https://t.me/Python3_OpenCV4<br>
-Address: Room 320, the building of Optoelectronic Science and Engineering, Qingshuihe Campus, No.2006, Xiyuan Ave, West Hi-Tech Zone, 611731  |   Chengdu, Sichuan, P.R.China</p>
+                            <!-- more -->
+<center><font color=red size=30>----------2021.02.05 14:25----------</font></center>
+<h2>1.系统考虑因素 (System Considerations)</h2>
+<h3 id="11稳压器regulators-in-power-management">1.1稳压器(Regulators in Power Management)</h3>
+<ul>
+<li>在高电压和电流系统中，极速的电压电流变化以及开关工作，导致原本的直流电产生电压下降和频率尖峰。</li>
+<li>稳压器/电压调节器 (voltage regulation)可以将这些不可预测的和有噪声的电源转换为稳定、恒定、准确和负载无关的电压，将这些不稳定的波动衰减到更低和更可接受的水平，并且快速响应时间较短。</li>
+<li>集成电路所能承受的最大电压随着尺寸和间距的减小而降低，在不发生击穿的情况下。(The  maximum  voltage  an  IC  can  sustain  before  the  onset  of  a  breakdown  failure  declines with decreasing dimensions and pitch because as the compo-nent density increases, isolation barriers deteriorate.)</li>
+</ul>
+<h3 id="12-线性和开关稳压器">1.2 线性和开关稳压器</h3>
+<p>定性：稳压器通常是带缓冲的参考——<code>偏置电压</code>与<code>同相运放</code>级联，能够在<code>分流反馈</code>配置中驱动打负载电流。(A  voltage  regulator  is  normally  a  buffered  reference:  a  bias  voltage  cascaded with a noninverting op-amp capable of driving large load currents in shunt-feedback configuration.)</p>
+<h4 id="121-线性和开关稳压器的区别">1.2.1 线性和开关稳压器的区别</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">稳压器类别</th>
+<th style="text-align:center">线性稳压器</th>
+<th style="text-align:center">开关稳压器</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">又名</td>
+<td style="text-align:center">串联稳压器</td>
+<td style="text-align:center">开关转化器</td>
+</tr>
+<tr>
+<td style="text-align:center">工作原理</td>
+<td style="text-align:center">线性地调节连接在输入直流电源和被调节输出之间的串联开关(a series pass switch)*的电导</td>
+<td style="text-align:center">通过无损的储能装置传递能量，即通过从输入端激励电感和/或电容储能，在负载端释放能量</td>
+</tr>
+<tr>
+<td style="text-align:center">工作方式</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">电路反馈并将模拟误差信号转换成脉冲宽度调制(PWM)数字脉冲序列，从而决定交换网络的连通性</td>
+</tr>
+<tr>
+<td style="text-align:center">基本电路图</td>
+<td style="text-align:center"><img src="F:\Gridea\images\basic_linear_regulator_circuits.png" alt="线性" style="zoom:33%;" /></td>
+<td style="text-align:center"><img src="F:\Gridea\images\basic_switch_regulator_circuits.png" alt="开关" style="zoom:33%;" /></td>
+</tr>
+<tr>
+<td style="text-align:center">特点</td>
+<td style="text-align:center">电流和控制是连续的；输出电压不能超过输入电压</td>
+<td style="text-align:center">可以进行DC和AC的相互转化</td>
+</tr>
+<tr>
+<td style="text-align:center">区别</td>
+<td style="text-align:center">噪声低；在反馈电路中仅有模拟元件；电路简单，响应迅速</td>
+<td style="text-align:center">噪声大；在反馈电路中既有模拟又有数字元件***</td>
+</tr>
+</tbody>
+</table>
+<p>*串联开关(a series pass switch)： &quot;串联 &quot;是指与无源电源和负载串联的传递元件（或开关装置）。(The term “series” refers to the pass element (or switch device) that is in series with the unregu-lated supply and the load.)</p>
+<p>**PWM控制器是模拟线性放大器和脉冲宽度调制模数转换器的组合，通常需要时钟、比较器、非重叠数字驱动器和锯齿三角波发生器。</p>
+<p>***数字反馈电路包括PWM控制器、同步和/或异步开关(即晶体管和/或二极管)、电容、电感等。</p>
+<h4 id="122-频率特性">1.2.2 频率特性</h4>
+<ul>
+<li>对于一个稳定的负反馈开关变换器，开关频率通常比回路带宽高10倍，进一步限制其响应时间在给定工艺技术中可用晶体管的过渡频率(ft)以下数量级。</li>
+<li>提高开关频率可以减少输出电压纹波并降低对LC滤波器的要求，但是其增加了开关损耗。</li>
+</ul>
+<h4 id="123-功率和损耗">1.2.3 功率和损耗</h4>
+<ul>
+<li>对于线性稳压器来说，功率效率随着输入输出压差的降低而增加。适用于<code>低功率</code>。</li>
+<li>开关稳压器效率较高，在MOS开关频率可以接受的范围内，随着开关频率的提高，开关损耗逐渐减小。适用于<code>高功率</code>。</li>
+</ul>
 
                         </div>
                         
@@ -261,7 +323,7 @@ Address: Room 320, the building of Optoelectronic Science and Engineering, Qings
 
                                                 <p class="copyright-item">
                                                     <span>&#x6C38;&#x4E45;&#x94FE;&#x63A5;:</span>
-                                                    <span><a href="https://ricardosong.top/post/about/">https://ricardosong.top/post/about/</a></span>
+                                                    <span><a href="https://ricardosong.top/post/readingnote-analog-ic-design-with-low-dropout-regulators-ldos/">https://ricardosong.top/post/readingnote-analog-ic-design-with-low-dropout-regulators-ldos/</a></span>
                                                 </p>
 
                                                 <p class="copyright-item">
@@ -276,9 +338,9 @@ Address: Room 320, the building of Optoelectronic Science and Engineering, Qings
                                                                     <span style="margin-right:15px">
                         <i class="post-share"></i>
                         <span>&#x5206;&#x4EAB;:</span>
-                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardosong.top/post/about/"><i class="fa fa-qrcode"></i></a>
-                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://ricardosong.top/post/about/&sharesource=qzone&title=关于&pics=https://ricardosong.top/images/avatar.png?v=1612506673564&summary="><i class="fa fa-qq"></i></a>
-                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://ricardosong.top/post/about/&sharesource=weibo&title=关于 + " - " + &pic="https://ricardosong.top/images/avatar.png?v=1612506673564 "><i class="fa fa-weibo "></i></a>
+                                                                    <a title="QR 码" target="_blank" href="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://ricardosong.top/post/readingnote-analog-ic-design-with-low-dropout-regulators-ldos/"><i class="fa fa-qrcode"></i></a>
+                                                                    <a title="QQ" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://ricardosong.top/post/readingnote-analog-ic-design-with-low-dropout-regulators-ldos/&sharesource=qzone&title=ReadingNotes: Analog IC Design with Low-Dropout Regulators (LDOs)&pics=https://ricardosong.top/images/avatar.png?v=1612506673564&summary="><i class="fa fa-qq"></i></a>
+                                                                    <a title="新浪微博" target="_blank" href="https://service.weibo.com/share/share.php?url=https://ricardosong.top/post/readingnote-analog-ic-design-with-low-dropout-regulators-ldos/&sharesource=weibo&title=ReadingNotes: Analog IC Design with Low-Dropout Regulators (LDOs) + " - " + &pic="https://ricardosong.top/images/avatar.png?v=1612506673564 "><i class="fa fa-weibo "></i></a>
 
                                                                     </span>
                                                                     
@@ -296,6 +358,28 @@ Address: Room 320, the building of Optoelectronic Science and Engineering, Qings
                                                                                     <span>&#x6807;&#x7B7E;:</span>
                                                                                     <span class="tag ">
                         
+                        
+                        <a href="https://ricardosong.top/tag/paper/">#
+                    论文
+                        </a>
+                        
+                        <a href="https://ricardosong.top/tag/ic/">#
+                    集成电路
+                        </a>
+                        
+                        <a href="https://ricardosong.top/tag/LDO/">#
+                    LDO
+                        </a>
+                        
+                        <a href="https://ricardosong.top/tag/analog/">#
+                    模拟
+                        </a>
+                        
+                        <a href="https://ricardosong.top/tag/readingnote/">#
+                    读书笔记
+                        </a>
+                        
+                            
                                 </span>
                                                                                 </div>
                                                                                 <div>
