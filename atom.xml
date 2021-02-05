@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ricardosong.top</id>
     <title>Ricardo&apos;s Blog</title>
-    <updated>2021-02-05T06:56:39.380Z</updated>
+    <updated>2021-02-05T06:58:52.199Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ricardosong.top"/>
     <link rel="self" href="https://ricardosong.top/atom.xml"/>
@@ -69,7 +69,7 @@
 <p>***数字反馈电路包括PWM控制器、同步和/或异步开关(即晶体管和/或二极管)、电容、电感等。</p>
 <p>基础电路图(左为线性，右为开关)</p>
 <center class="half">
-    <img src="F:\Gridea\images\basic_linear_regulator_circuits.png" width="200"/><img src="F:\Gridea\images\basic_switch_regulator_circuits.png" width="200"/>
+    <img src="F:/Gridea/post-images/1612508286438.png" width="200"/><img src="F:/Gridea/post-images/1612508304971.png" width="200"/>
 </center>
 <h4 id="122-频率特性">1.2.2 频率特性</h4>
 <ul>
