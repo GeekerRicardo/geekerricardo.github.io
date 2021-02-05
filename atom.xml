@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ricardosong.top</id>
     <title>Ricardo&apos;s Blog</title>
-    <updated>2021-02-05T07:00:42.425Z</updated>
+    <updated>2021-02-05T07:02:22.400Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ricardosong.top"/>
     <link rel="self" href="https://ricardosong.top/atom.xml"/>
@@ -67,10 +67,10 @@
 <p>*串联开关(a series pass switch)： &quot;串联 &quot;是指与无源电源和负载串联的传递元件（或开关装置）。(The term “series” refers to the pass element (or switch device) that is in series with the unregu-lated supply and the load.)</p>
 <p>**PWM控制器是模拟线性放大器和脉冲宽度调制模数转换器的组合，通常需要时钟、比较器、非重叠数字驱动器和锯齿三角波发生器。</p>
 <p>***数字反馈电路包括PWM控制器、同步和/或异步开关(即晶体管和/或二极管)、电容、电感等。</p>
-<p>基础电路图(左为线性，右为开关)</p>
-<center class="half">
-    <img src="https://github.com/GeekerRicardo/geekerricardo.github.io/blob/master/images/basic_linear_regulator_circuits.png" width="200"/><img src="https://github.com/GeekerRicardo/geekerricardo.github.io/blob/master/images/basic_switch_regulator_circuits.png" width="200"/>
-</center>
+<p>线性稳压器基本电路图<br>
+<img src="https://ricardosong.top/post-images/1612508519317.png" alt="linear" loading="lazy"><br>
+开关稳压器基本电路图<br>
+<img src="https://ricardosong.top/post-images/1612508522831.png" alt="swithc" loading="lazy"></p>
 <h4 id="122-频率特性">1.2.2 频率特性</h4>
 <ul>
 <li>对于一个稳定的负反馈开关变换器，开关频率通常比回路带宽高10倍，进一步限制其响应时间在给定工艺技术中可用晶体管的过渡频率(ft)以下数量级。</li>
