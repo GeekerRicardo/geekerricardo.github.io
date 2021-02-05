@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://ricardosong.top</id>
     <title>Ricardo&apos;s Blog</title>
-    <updated>2021-02-05T06:33:59.364Z</updated>
+    <updated>2021-02-05T06:37:42.697Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://ricardosong.top"/>
     <link rel="self" href="https://ricardosong.top/atom.xml"/>
@@ -54,8 +54,8 @@
 </tr>
 <tr>
 <td style="text-align:center">基本电路图</td>
-<td style="text-align:center"><img src="F:\Gridea\images\basic_linear_regulator_circuits.png" alt="线性" style="zoom:33%;" /></td>
-<td style="text-align:center"><img src="F:\Gridea\images\basic_switch_regulator_circuits.png" alt="开关" style="zoom:33%;" /></td>
+<td style="text-align:center"><img src="https://ricardosong.top/post-images/1612507046539.png" alt="线性" loading="lazy"></td>
+<td style="text-align:center"></td>
 </tr>
 <tr>
 <td style="text-align:center">特点</td>
